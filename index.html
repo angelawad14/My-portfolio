@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Angela Awad — Product Design Leader</title>
+<meta name="description" content="Angela Awad, Product Design Leader and founder of JD Solus. 15+ years turning complex business challenges in fintech, banking, enterprise and EdTech into products people understand.">
+<meta name="theme-color" content="#21013D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="assets/portrait.webp" type="image/webp">
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --bg:#21013D; --surface:#2E0A52; --surface-2:#170029;
+  --fg:#F7F2FB; --fg-2:#DCD0E8; --muted:#CDBFDC; --subtle:#B8A6CC;
+  --line:#3D1A60; --line-2:#5B3784;
+  --accent:#FFA200; --on-accent:#21013D;
+  --font:"Noto Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --gutter:clamp(20px,3.5vw,72px);
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --ease-draw:cubic-bezier(.5,0,.2,1);
+  --nav-h:68px;
+  --ease-elastic:cubic-bezier(.34,1.45,.55,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);background:var(--bg);overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+img,svg{display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--accent);color:var(--on-accent);padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 26px;border-radius:999px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s var(--ease-out)}
+.btn:active{transform:scale(.97)}
+.btn--primary{background:var(--accent);color:var(--on-accent)}
+.btn--primary:hover{background:var(--fg)}
+.btn--ghost{border-color:var(--fg);color:var(--fg)}
+.btn--ghost:hover{background:var(--fg);color:var(--bg)}
+.btn .arr{transition:transform .25s var(--ease-out)}
+.btn:hover .arr{transform:translateY(3px)}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;height:var(--nav-h);background:rgba(33,1,61,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:transform .35s var(--ease-out)}
+.nav.is-hidden{transform:translateY(-100%)}
+.nav__in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--gutter)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:-.01em}
+.brand__mark{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:700;transition:transform .4s var(--ease-out)}
+.brand:hover .brand__mark{transform:rotate(-12deg)}
+.nav__links{display:flex;align-items:center;gap:28px;font-size:14px}
+.nav__links a{position:relative;text-decoration:none;color:var(--muted);padding:6px 0;transition:color .2s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.nav__links a:hover,.nav__links a[aria-current="true"]{color:var(--fg)}
+.nav__links a:hover::after,.nav__links a[aria-current="true"]::after{transform:scaleX(1)}
+.nav__links .nav__cta{min-height:40px;padding:8px 18px;font-size:14px;color:var(--on-accent)}
+.nav__links .nav__cta::after{display:none}
+.nav__links .nav__cta:hover{color:var(--on-accent)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;min-height:100svh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:center;padding:calc(var(--nav-h) + 32px) 0 0 var(--gutter)}
+.hero__a{position:absolute;right:-3vw;bottom:0;width:clamp(320px,40vw,860px);height:auto;z-index:0;pointer-events:none}
+.hero__copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:28px;padding:24px 0 56px}
+.kicker{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.hero h1{font-weight:700;font-size:clamp(44px,5.6vw,88px);line-height:.98;letter-spacing:-.035em;max-width:14ch}
+.hero h1 .hl{color:var(--accent)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.w>span{display:inline-block}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));border-top:1px solid var(--line-2)}
+.notes li{padding:16px 20px 0 0;display:flex;flex-direction:column;gap:4px}
+.notes b{font-size:12px;font-weight:500;color:var(--accent)}
+.notes span{color:var(--fg-2);font-size:15px}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px}
+.portrait{position:relative;z-index:1;width:100%;aspect-ratio:1;justify-self:end;align-self:end}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.05) brightness(.96);
+  -webkit-mask-image:radial-gradient(ellipse 56% 66% at 52% 46%,#000 50%,rgba(0,0,0,.55) 74%,transparent 100%),linear-gradient(to top,transparent 0,#000 30%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 8%,#000 26%),linear-gradient(to right,transparent 0,#000 38%),linear-gradient(to left,transparent 0,#000 14%);-webkit-mask-composite:source-in,source-in,source-in,source-in;
+  mask-image:radial-gradient(ellipse 56% 66% at 52% 46%,#000 50%,rgba(0,0,0,.55) 74%,transparent 100%),linear-gradient(to top,transparent 0,#000 30%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 8%,#000 26%),linear-gradient(to right,transparent 0,#000 38%),linear-gradient(to left,transparent 0,#000 14%);mask-composite:intersect,intersect,intersect,intersect}
+
+/* the "a" mark (hero + contact) */
+.amotion{will-change:transform}
+.amark{width:100%;height:auto;overflow:visible;transform-origin:60% 70%}
+.amark__body{fill:#2D0751;fill-opacity:0;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.amark__glint{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:.07 .93;stroke-dashoffset:0;opacity:0}
+.amark.is-drawn{animation:apop 1.6s var(--ease-elastic) both}
+.amark.is-drawn .amark__body{animation:draw 1.8s var(--ease-draw) forwards,fillin 1.1s 1.5s forwards}
+.amark.is-drawn .amark__glint{animation:glint 2.2s 2.4s ease-in-out forwards}
+@keyframes apop{from{transform:scale(.84) rotate(-10deg)}to{transform:none}}
+@keyframes glint{0%{opacity:0;stroke-dashoffset:0}8%{opacity:1}88%{opacity:1}100%{opacity:0;stroke-dashoffset:-1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill-opacity:1;stroke:#5B3784}}
+#heroA.is-drawn{animation:apop 1.6s var(--ease-elastic) both,afloat 6.5s 2.2s ease-in-out infinite}
+#heroA.is-drawn .amark__glint{animation:glintloop 4.8s 2.4s ease-in-out infinite}
+#heroA.is-drawn .amark__body{animation:draw 1.8s var(--ease-draw) forwards,fillin 1.1s 1.5s forwards,aglow 6.5s 2.6s ease-in-out infinite}
+@keyframes afloat{0%,100%{transform:translateY(0) rotate(0) scale(1)}35%{transform:translateY(-16px) rotate(3deg) scale(1.02)}70%{transform:translateY(8px) rotate(-2deg) scale(.99)}}
+@keyframes glintloop{0%{opacity:0;stroke-dashoffset:0}6%{opacity:1}46%{opacity:1}52%{opacity:0;stroke-dashoffset:-1}100%{opacity:0;stroke-dashoffset:-1}}
+@keyframes aglow{0%,100%{stroke:#5B3784;stroke-width:2.5}50%{stroke:#B26DFF;stroke-width:3.5}}
+
+/* ---------- Hero intro (runs once on load) ---------- */
+.js .intro{opacity:0;transform:translateY(18px)}
+.js .w>span{transform:translateY(105%)}
+.js .portrait{opacity:0;transform:translateX(30px)}
+.is-loaded .intro{opacity:1;transform:none;transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);transition-delay:var(--d,0s)}
+.is-loaded .w>span{transform:none;transition:transform .9s var(--ease-out);transition-delay:calc(.25s + var(--i) * .045s)}
+.is-loaded .portrait{opacity:1;transform:none;transition:opacity 1.3s var(--ease-out) .4s,transform 1.3s var(--ease-out) .4s}
+
+/* ---------- Shared section bits ---------- */
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:500;font-size:15px;letter-spacing:.02em}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.js .reveal{opacity:0;transform:translateY(28px)}
+.reveal.is-in{opacity:1;transform:none;transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);transition-delay:var(--d,0s)}
+
+/* ---------- Numbers ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:96px var(--gutter)}
+.stats .eyebrow{margin-bottom:26px}
+.st{display:grid;grid-template-columns:repeat(3,1fr)}
+.st>li{padding:0 clamp(16px,3vw,48px);border-left:1px solid var(--line)}
+.st>li:first-child{padding-left:0;border-left:0}
+.num{display:flex;align-items:flex-start;font-weight:700;font-size:clamp(84px,11vw,190px);line-height:1;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.dg{display:inline-block;height:1em;overflow:hidden}
+.col{display:block;transition:transform 2.4s cubic-bezier(.16,.84,.2,1)}
+.col i{display:block;height:1em;line-height:1;font-style:normal}
+.pl{color:var(--accent);font-weight:500}
+.st p{margin-top:14px;color:var(--muted);font-size:clamp(16px,1.4vw,20px);line-height:1.35;max-width:24ch}
+
+
+/* ---------- Process ---------- */
+.process{padding:110px var(--gutter) 40px}
+.process h2{font-weight:700;font-size:clamp(48px,6.4vw,100px);letter-spacing:-.04em;line-height:.94;margin-top:14px}
+.pr{position:relative;margin-top:80px}
+.pa{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.pa .ghost{fill:none;stroke:var(--line-2);stroke-width:2;stroke-dasharray:3 8}
+.pa .live{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round}
+.pa .arr{opacity:0}.pa .arr path{fill:var(--accent)}
+.ps{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,2vw,32px);position:relative;z-index:1}
+.ps li{opacity:.5;transition:opacity .5s}.ps li.on{opacity:1}
+.ps li:nth-child(odd){margin-top:120px}
+.nd{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--surface);transition:background .4s,border-color .4s,transform .5s var(--ease-elastic)}
+.nd svg{width:34px;height:34px;stroke:var(--fg);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.ps li.on .nd{background:var(--accent);border-color:var(--accent);transform:scale(1.1)}.ps li.on .nd svg{stroke:var(--on-accent)}
+.ps h3{font-weight:700;font-size:clamp(22px,2.1vw,30px);margin:22px 0 10px;line-height:1;letter-spacing:-.03em}
+.ps p{color:var(--muted);font-size:15px;line-height:1.5}
+@media(max-width:860px){.process{padding:80px var(--gutter) 20px}.ps{grid-template-columns:1fr;gap:36px}.ps li:nth-child(odd){margin-top:0}.ps li{display:grid;grid-template-columns:76px 1fr;column-gap:20px;align-items:start}.nd{grid-row:1/3}.ps h3{margin:6px 0 8px}}
+/* ---------- Work ---------- */
+.work{padding:110px var(--gutter) 120px}
+.work__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:64px}
+.work__head h2{font-weight:700;font-size:clamp(48px,6.4vw,100px);letter-spacing:-.04em;line-height:.94;margin-top:14px}
+.work__head h2 span{color:var(--accent)}
+.work__head p{color:var(--subtle);max-width:300px}
+.chapter{position:relative;padding:0;display:flex;flex-direction:column;gap:26px}
+
+@keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.6);opacity:0}}
+.chapter__bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px}
+.chapter__no{display:none}
+.chapter h3{font-weight:700;font-size:clamp(40px,4.4vw,64px);line-height:1;letter-spacing:-.035em;margin-top:6px}
+.ctrl{display:flex;align-items:center;gap:12px}
+.count{min-width:72px;text-align:right;color:var(--muted);font-size:15px;font-variant-numeric:tabular-nums}
+.count b{color:var(--fg);font-weight:600}
+.arrow{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;cursor:pointer;border:1px solid var(--line-2);background:transparent;transition:background-color .2s,border-color .2s,opacity .2s,transform .2s var(--ease-out)}
+.arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease-out)}
+.arrow:hover{border-color:var(--fg)}
+.arrow--next{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.arrow--next:hover{background:var(--fg);border-color:var(--fg)}
+.arrow--next:hover svg{transform:translateX(3px)}
+.arrow--prev:hover svg{transform:translateX(-3px)}
+.arrow:active{transform:scale(.94)}
+.arrow:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.arrow:disabled:hover{border-color:var(--line-2)}
+.arrow--next:disabled:hover{background:var(--accent);border-color:var(--accent)}
+.arrow:disabled svg{transform:none}
+.viewport{overflow:hidden;border-radius:32px;touch-action:pan-y}
+.track{display:flex;gap:24px;transition:transform .7s var(--ease-out);will-change:transform}
+.slide{flex:0 0 100%;min-width:0;min-height:clamp(560px,calc(100svh - 220px),720px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:48px}
+.slide__txt{display:flex;flex-direction:column;gap:16px;min-width:0}
+.slide__txt>*{transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.slide:not(.is-current) .slide__txt>*{opacity:0;transform:translateY(16px)}
+.slide.is-current .slide__txt>:nth-child(2){transition-delay:.06s}
+.slide.is-current .slide__txt>:nth-child(3){transition-delay:.12s}
+.slide.is-current .slide__txt>:nth-child(4){transition-delay:.18s}
+.slide.is-current .slide__txt>:nth-child(5){transition-delay:.24s}
+.slide__idx{font-size:13px;color:var(--accent);font-weight:500}
+.slide h4{margin:0;font-weight:700;font-size:clamp(36px,4.2vw,64px);line-height:1;letter-spacing:-.03em}
+.slide__desc{color:var(--fg-2);font-size:17px}
+.slide__desc.is-todo{color:var(--subtle);font-style:italic;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+.res{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;border-top:1px solid var(--line);padding-top:18px}
+.res b{display:block;font-size:40px;font-weight:700;line-height:1;letter-spacing:-.03em}
+.res span{font-size:13px;color:var(--muted)}
+.src{font-size:12px;color:var(--subtle)}
+.mock{position:relative;min-width:0;width:100%;align-self:stretch;min-height:420px;border-radius:20px;overflow:hidden;transition:transform .9s var(--ease-out),opacity .9s var(--ease-out)}
+.slide:not(.is-current) .mock{transform:scale(.94);opacity:.4}
+.mock img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.mock:not(.mock--empty):not(.mock--device){background:var(--surface-2)}
+.mock--fill img{object-fit:cover}
+.mock:not(.mock--empty)::after{content:"";position:absolute;inset:0;z-index:4;border:2px solid var(--line-2);border-radius:inherit;pointer-events:none}
+.mock--empty{border:2px dashed var(--line-2);background:var(--surface-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px}
+.mock--empty b{font-size:24px;font-weight:500}
+.mock--empty span{font-size:14px;color:var(--subtle)}
+.progress{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transform-origin:left;transition:transform .7s var(--ease-out)}
+
+
+/* elastic entrance: each chapter springs in as it reaches the viewport */
+.js .chapter__bar,.js .chapter .viewport,.js .chapter .progress{opacity:0;transform:translateY(90px) scale(.94)}
+.chapter.is-in .chapter__bar,.chapter.is-in .viewport,.chapter.is-in .progress{opacity:1;transform:none;transition:opacity .5s ease-out,transform 1.35s var(--ease-elastic)}
+.chapter.is-in .viewport{transition-delay:.08s}
+.chapter.is-in .progress{transition-delay:.16s}
+@keyframes dotpop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* ambient orange light (the "shadow" behind the six areas), reused across the page and slowly moving */
+.hero,.stats,.process,.caps,.work,.certs,.contact{position:relative;isolation:isolate}
+.glow{position:absolute;z-index:-1;pointer-events:none;left:var(--x,50%);top:var(--y,0);width:var(--w,620px);height:calc(var(--w,620px) * .84);margin-left:calc(var(--w,620px) / -2);opacity:var(--a,1);transform:rotate(var(--r,0deg))}
+.glow i{position:absolute;inset:0;background:radial-gradient(closest-side,rgba(255,162,0,.32),transparent),linear-gradient(125deg,transparent 42%,rgba(255,170,40,.3) 47%,transparent 52%),linear-gradient(125deg,transparent 57%,rgba(178,109,255,.32) 61%,transparent 66%);filter:blur(34px);will-change:transform,opacity;animation:glowdrift var(--t,6s) ease-in-out infinite alternate;animation-delay:var(--dl,0s);animation-play-state:paused}
+.glow.is-on i{animation-play-state:running}
+@keyframes glowdrift{0%{transform:translate3d(0,0,0) rotate(0) scale(1);opacity:.6}25%{transform:translate3d(-140px,70px,0) rotate(-18deg) scale(1.25);opacity:1}50%{transform:translate3d(90px,120px,0) rotate(10deg) scale(.9);opacity:.75}75%{transform:translate3d(130px,-60px,0) rotate(22deg) scale(1.18);opacity:1}100%{transform:translate3d(-60px,-110px,0) rotate(-8deg) scale(1.05);opacity:.8}}
+
+/* capabilities — editorial collage */
+.caps{position:relative;padding:110px var(--gutter) 130px;isolation:isolate;overflow:clip}
+.caps__head{text-align:center;max-width:900px;margin:0 auto}
+.caps__head .eyebrow{justify-content:center}
+.caps__head h2{font-weight:700;font-size:clamp(44px,5.6vw,88px);letter-spacing:-.04em;line-height:.94;margin-top:14px}
+.caps__head h2 span{color:var(--accent)}
+.caps__head>p{color:var(--muted);font-size:18px;max-width:52ch;margin:24px auto 0}
+.cp-grid{width:min(950px,100%);margin:80px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;align-items:start}
+.cp-grid+.cp-grid{margin-top:60px}
+.cp-col{display:flex;flex-direction:column;gap:30px}
+.cp-col--b{padding-top:160px}
+.cp-grid--flip .cp-col--a{order:2}.cp-grid--flip .cp-col--b{order:1}
+.cp-ph{margin:0;border-radius:24px;overflow:hidden;background:var(--surface-2)}
+.cp-ph img{display:block;width:100%;height:100%;object-fit:cover}
+.cp-ph--tall{aspect-ratio:460/650}.cp-ph--med{aspect-ratio:460/455}
+.cp-card{width:80%;padding:24px 28px 26px;border-radius:20px;background:linear-gradient(150deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 14px 34px rgba(8,0,24,.35)}
+.cp-card--under{width:70%;margin-top:-4px;margin-left:-6px}
+.cp-card b{display:block;font-size:52px;font-weight:500;letter-spacing:-.03em;line-height:1;color:#FFE9C2}
+.cp-card h3{font-size:13.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:12px}
+.cp-card p{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.5}
+/* scroll reveal: photo unmasks upward and settles, card follows */
+.js .cp-ph.reveal{opacity:1;transform:none}
+.js .cp-ph.reveal img{clip-path:inset(100% 0 0 0);transform:scale(1.18);transition:clip-path 1.1s cubic-bezier(.65,0,.25,1),transform 1.6s var(--ease-out)}
+.js .cp-ph.reveal.is-in img{clip-path:inset(0 0 0 0);transform:none}
+.js .cp-card.reveal{transform:translateY(40px)}
+.js .cp-card.reveal.is-in{transition-delay:.25s}
+.cp-par{will-change:transform}
+/* pair spotlight: the photo + card nearest the centre of the screen lead, the rest step back */
+.cp-ph,.cp-card{transition:opacity .6s var(--ease-out),filter .6s var(--ease-out),border-color .5s,box-shadow .5s,translate .6s var(--ease-out)}
+.cp-ph::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid transparent;transition:border-color .5s;pointer-events:none}
+.cp-ph{position:relative}
+.caps.is-live .cp-ph:not(.is-on),.caps.is-live .cp-card:not(.is-on){opacity:.45;filter:saturate(.6)}
+.cp-ph.is-on::after{border-color:rgba(255,162,0,.7)}
+.cp-ph.is-on img{transform:scale(1.04)!important;transition:transform 1.2s var(--ease-out),clip-path 1.1s cubic-bezier(.65,0,.25,1)!important}
+.cp-card.is-on{border-color:rgba(255,162,0,.6);box-shadow:0 18px 44px rgba(255,140,0,.18),0 14px 34px rgba(8,0,24,.35);translate:0 -6px}
+.cp-card b{transition:color .5s}
+.cp-card.is-on b{color:var(--accent)}
+.cp-card h3::after{content:"";display:block;height:2px;width:0;margin-top:10px;background:var(--accent);border-radius:2px;transition:width .7s var(--ease-out)}
+.cp-card.is-on h3::after{width:48px}
+@media (max-width:760px){.cp-grid{display:flex;flex-direction:column}.cp-col{display:contents}.cp-ph,.cp-card{order:var(--o)}.cp-col--b{padding-top:0}.cp-grid--flip .cp-col--a{order:1}.cp-grid--flip .cp-col--b{order:2}.cp-card,.cp-card--under{width:auto;margin-left:0}}
+@media (prefers-reduced-motion:reduce){.js .cp-ph.reveal img{clip-path:none;transform:none}}
+
+/* device mockup (photo + real screens mapped onto the phone) */
+.mock--device{background:#F9A01E;border-radius:20px}
+.mock--device::after{content:"";position:absolute;inset:0;z-index:4;border:2px solid var(--line-2);border-radius:inherit;pointer-events:none}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0}
+.stage__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.screen{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#000}
+.screen img{position:absolute;left:0;top:0;width:100%;height:auto;opacity:0;transition:opacity .35s}
+.screen img.on{opacity:1}
+.screen::after{content:"";position:absolute;inset:0;z-index:7;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 38%)}
+.isl{position:absolute;z-index:6;top:14px;left:50%;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:width .4s var(--ease-elastic),margin-left .4s var(--ease-elastic)}
+.isl span{font:500 17px var(--font);color:#fff;white-space:nowrap;opacity:0;transition:opacity .2s}
+.isl.open{width:250px;margin-left:-125px}.isl.open span{opacity:1;transition-delay:.12s}
+.stage__ov{position:absolute;z-index:2;pointer-events:none}
+.notch{position:absolute;top:-2px;z-index:6;border-radius:0 0 26px 26px}
+.notch::after{content:"";position:absolute;left:30%;top:42%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#9AA1AE;box-shadow:inset 0 0 0 3px #B9BFCA}
+.devctl{position:absolute;left:14px;right:14px;bottom:14px;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none}
+.devcap{background:rgba(33,1,61,.82);color:var(--fg);font-size:13px;padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.devbtn{pointer-events:auto;width:44px;height:44px;border-radius:50%;border:0;background:rgba(33,1,61,.82);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:background-color .2s}
+.devbtn:hover{background:var(--accent);color:var(--on-accent)}
+.devbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.devbtn .i-play{display:none;fill:currentColor;stroke:none}
+.is-paused .devbtn .i-play{display:block}.is-paused .devbtn .i-pause{display:none}
+
+/* ---------- Certifications ---------- */
+.certs{border-top:1px solid var(--line);padding:110px var(--gutter)}
+.certs__head h2{font-weight:700;font-size:clamp(44px,6vw,92px);letter-spacing:-.04em;line-height:.94;margin-top:14px}
+.certs__head h2 span{color:var(--accent)}
+.certs__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:56px}
+.cert{display:flex;align-items:center;justify-content:center;min-height:150px;padding:20px;transition:transform .5s var(--ease-elastic),opacity .3s}
+.cert:hover{transform:translateY(-6px)}
+.cert img{opacity:.85;transition:opacity .3s}.cert:hover img{opacity:1}
+.cert__logo{display:flex;align-items:center;justify-content:center;width:100%}
+.cert__logo span{font-weight:700;font-size:17px;line-height:1.2}
+.cert__logo small{font-size:11px;color:#6B5A80;margin-top:6px}
+.cert__logo img{max-width:88%;max-height:92px;object-fit:contain}
+.cert__logo[data-logo="nngroup"] img{max-height:120px}
+.cert h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.02em}
+.cert__org{color:var(--fg-2);font-size:15px}
+.cert__meta{color:var(--subtle);font-size:13px;margin-top:auto;padding-top:10px}
+@media(max-width:1024px){.certs__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.certs{padding:80px var(--gutter)}.certs__grid{grid-template-columns:1fr}}
+
+/* chapter tabs with a sliding horizontal line */
+.tabs{position:relative;display:flex;gap:0;margin-bottom:44px;border-bottom:1px solid var(--line-2);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;min-height:64px;padding:14px 22px 18px;background:none;border:0;color:var(--muted);cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px;transition:color .25s}
+.tab small{font-size:13px;font-weight:500;color:var(--accent);opacity:.75}
+.tab span{font-size:clamp(18px,1.8vw,26px);font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.tab b{font-weight:500;font-size:13px;color:var(--subtle);margin-left:6px}
+.tab:hover,.tab[aria-selected="true"]{color:var(--fg)}
+.tab[aria-selected="true"] small{opacity:1}
+.tabs__line{position:absolute;left:0;bottom:-1px;height:4px;border-radius:4px;background:var(--accent);width:0;transform:translateX(0);transition:transform .8s var(--ease-elastic),width .8s var(--ease-elastic)}
+.chapter[hidden]{display:none}
+.chapter.is-switching .chapter__bar,.chapter.is-switching .viewport,.chapter.is-switching .progress{opacity:0;transform:translateX(70px) scale(.97);transition:none}
+/* ---------- Contact ---------- */
+.contact{border-top:1px solid var(--line);padding:120px var(--gutter) 72px}
+.contact__lead{color:var(--accent);font-weight:500;font-size:clamp(18px,2vw,26px);margin-bottom:18px}
+.ct2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
+.ct2__copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px}
+.contact h2{font-weight:700;font-size:clamp(80px,13vw,230px);line-height:.85;letter-spacing:-.05em;text-transform:lowercase}
+.contact h2 .w{padding-bottom:.1em}
+.contact .reveal-words .w>span{transform:translateY(105%)}
+.contact .reveal-words.is-in .w>span{transform:none;transition:transform 1s var(--ease-out);transition-delay:calc(var(--i) * .12s)}
+.contact__p{font-size:clamp(18px,1.8vw,24px);color:var(--muted);max-width:560px}
+.contact__a{width:100%;max-width:560px;margin-left:auto}
+.cl{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:90px}
+.cl li{padding-top:20px;border-top:1px solid var(--line)}
+.cl span{display:block;color:var(--subtle);font-size:13px;margin-bottom:6px}
+.cl a{font-size:clamp(17px,1.6vw,22px);font-weight:500;text-decoration:none;overflow-wrap:anywhere;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1.5px no-repeat;transition:background-size .35s var(--ease-out),color .2s}
+.cl a:hover{color:var(--accent);background-size:100% 1.5px}
+.copy-btn{margin-left:10px;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--muted);cursor:pointer;vertical-align:middle;transition:border-color .2s,color .2s}
+.copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+.footer{border-top:1px solid var(--line);padding:32px var(--gutter);color:var(--subtle);font-size:13px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .slide{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0;align-items:start;align-content:start}
+  .mock{min-height:0;aspect-ratio:16/10;align-self:auto}
+  .track{align-items:flex-start}
+  .mock--device{aspect-ratio:4/5;max-height:620px}
+}
+@media (max-width:860px){
+  :root{--nav-h:60px}
+  .nav__links a:not(.nav__cta){display:none}
+  .hero{grid-template-columns:1fr;min-height:0;padding-right:var(--gutter)}
+  .hero__copy{padding-bottom:0}
+  .portrait{max-width:520px;justify-self:center}
+  .hero__a{right:-18vw;width:78vw}
+  .st{grid-template-columns:1fr;gap:34px}
+  .st>li{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .st>li:first-child{border-top:0;padding-top:0}
+  .stats{padding:70px var(--gutter)}
+  .work{padding:80px var(--gutter)}
+    .viewport,.slide{border-radius:22px}
+  .slide{padding:24px}
+  .ct2{grid-template-columns:1fr}
+  .contact__a{max-width:280px;margin:10px 0 0}
+  .cl{grid-template-columns:1fr;gap:18px;margin-top:60px}
+  .devcap{font-size:12px;padding:6px 10px}
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .intro,.js .portrait,.js .reveal{opacity:1!important;transform:none!important}
+  .js .w>span,.contact .reveal-words .w>span{transform:none!important}
+  .js   .js .chapter__bar,.js .chapter .viewport,.js .chapter .progress{opacity:1!important;transform:none!important}
+  .tabs__line{transition:none!important}
+  .ps li{opacity:1}
+  .amark__body{stroke-dashoffset:0;fill-opacity:1;stroke:#5B3784}
+  .amotion{transform:none!important}
+  .slide:not(.is-current) .slide__txt>*,.slide:not(.is-current) .mock{opacity:1;transform:none}
+}
+@supports (transition-timing-function:linear(0,1)){:root{--ease-elastic:linear(0, 0.0551 2.5%, 0.1954 5.0%, 0.3846 7.5%, 0.5902 10.0%, 0.7864 12.5%, 0.9552 15.0%, 1.0856 17.5%, 1.1739 20.0%, 1.2213 22.5%, 1.2335 25.0%, 1.2180 27.5%, 1.1836 30.0%, 1.1386 32.5%, 1.0905 35.0%, 1.0452 37.5%, 1.0067 40.0%, 0.9773 42.5%, 0.9577 45.0%, 0.9476 47.5%, 0.9456 50.0%, 0.9498 52.5%, 0.9582 55.0%, 0.9688 57.5%, 0.9801 60.0%, 0.9905 62.5%, 0.9993 65.0%, 1.0059 67.5%, 1.0102 70.0%, 1.0124 72.5%, 1.0127 75.0%, 1.0116 77.5%, 1.0095 80.0%, 1.0070 82.5%, 1.0044 85.0%, 1.0020 87.5%, 1.0000 90.0%, 0.9985 92.5%, 0.9975 95.0%, 0.9971 97.5%, 1)}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="Angela Awad, back to top"><span class="brand__mark" aria-hidden="true">a</span>Angela Awad</a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--primary nav__cta" href="mailto:angelawad2@gmail.com">Email me</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="glow" aria-hidden="true" style="--x:78%;--y:-6%;--w:760px;--a:.8;--t:6.8s"><i></i></div>
+    <div class="hero__a amotion" id="heroAWrap" aria-hidden="true"><svg class="amark" id="heroA" viewBox="0 60 340 340"><path class="amark__body" pathLength="1" fill-rule="evenodd" d="M250 60 V80 A170 170 0 1 0 250 380 V400 H340 V60 Z M90 230 A80 80 0 1 0 250 230 A80 80 0 1 0 90 230 Z"/><path class="amark__glint" pathLength="1" d="M250 60 V80 A170 170 0 1 0 250 380 V400 H340 V60 Z M90 230 A80 80 0 1 0 250 230 A80 80 0 1 0 90 230 Z"/></svg></div>
+    <div class="hero__copy">
+      <p class="kicker intro" style="--d:0s">Product Design Leader · AI Product Design · Founder, JD Solus</p>
+      <h1 id="hero-title" data-split>I turn complex business challenges into products <span class="hl">people understand.</span></h1>
+      <ul class="notes intro" style="--d:.9s">
+        <li><b>01</b><span>15+ years across fintech, banking, enterprise platforms and EdTech.</span></li>
+        <li><b>02</b><span>From business requirements to design systems and shipped product.</span></li>
+        <li><b>03</b><span>AI built into the workflow — and into products, with people in control.</span></li>
+      </ul>
+      <div class="hero__ctas intro" style="--d:1.05s">
+        <a class="btn btn--primary" href="#work">See the work <svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 1v11M2 7l5 5 5-5"/></svg></a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <picture class="portrait">
+      <source type="image/webp" srcset="assets/portrait-480.webp 480w, assets/portrait.webp 800w" sizes="(max-width:860px) 90vw, 48vw">
+      <img src="assets/portrait.jpg" alt="Portrait of Angela Awad" width="800" height="800" fetchpriority="high">
+    </picture>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="stats" aria-labelledby="stats-title">
+    <div class="glow" aria-hidden="true" style="--x:12%;--y:-120px;--w:560px;--a:.7;--r:-20deg;--t:5.7s"><i></i></div>
+    <h2 class="eyebrow" id="stats-title">In numbers</h2>
+    <ul class="st">
+      <li><div class="num" data-n="15"></div><p>Years of experience</p></li>
+      <li><div class="num" data-n="10"></div><p>Features &amp; recognition</p></li>
+      <li><div class="num" data-n="110"></div><p>Brands, websites, systems, apps and counting…</p></li>
+    </ul>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process" aria-labelledby="process-title">
+    <div class="glow" aria-hidden="true" style="--x:86%;--y:40px;--w:620px;--a:.75;--r:10deg;--t:6.5s;--dl:-1.5s"><i></i></div>
+    <div class="reveal">
+      <p class="eyebrow">Design process · How I work</p>
+      <h2 id="process-title">How a project runs</h2>
+    </div>
+    <div class="pr" id="pr"><svg class="pa" aria-hidden="true"><path class="ghost"/><path class="live"/><g class="arr"><path d="M-11 -9L11 0L-11 9Z"/></g></svg><ol class="ps"><li><span class="nd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Understand</h3><p>I start by listening. I map the business goals, the users and the constraints, so the team agrees on the real problem before any design begins.</p></li><li><span class="nd"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5M8.5 11h5M11 8.5v5"/></svg></span><h3>Research &amp; Define</h3><p>Interviews, data and a review of the market turn into clear requirements, user journeys and success measures that guide every decision.</p></li><li><span class="nd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><h3>AI Design</h3><p>Where it helps, I design AI into the flow: assistants, recommendations and automation with transparency, human control and graceful errors.</p></li><li><span class="nd"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7 5.8-5.7"/></svg></span><h3>Validate</h3><p>Prototypes are tested with real users and options are compared with experiments, so decisions rest on evidence, not opinion.</p></li><li><span class="nd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M10 13L21 3"/></svg></span><h3>Deliver</h3><p>Handoff-ready screens, a documented design system and close work with engineers, so the product ships as designed and can scale.</p></li></ol>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="caps" id="expertise" aria-labelledby="caps-title">
+    <div class="glow" aria-hidden="true" style="--x:calc(50% + 430px);--y:200px;--w:620px;--t:5.3s"><i></i></div>
+    <div class="caps__head reveal">
+      <p class="eyebrow">Capabilities</p>
+      <h2 id="caps-title">Six areas,<br><span>one product mindset.</span></h2>
+      <p>Strategy, design and leadership working together, from the first idea to a product that scales.</p>
+    </div>
+    <div class="cp-grid">
+      <div class="cp-col cp-col--a"><figure class="cp-ph cp-ph--tall reveal" style="--o:0" data-k="1"><img src="assets/caps/photo-ai-strategy.webp" alt="A designer sketching an AI product flow on a tablet" width="460" height="650" loading="lazy" decoding="async"></figure><figure class="cp-ph cp-ph--med reveal" style="--o:4" data-k="3"><img src="assets/caps/photo-discovery.webp" alt="Sticky notes and sketches grouped on a glass wall during a workshop" width="460" height="455" loading="lazy" decoding="async"></figure><div class="cp-card cp-card--under reveal" style="--o:5" data-k="3"><b>03</b><h3>Product Discovery &amp; Innovation</h3><p>Turning business ideas into tested concepts: framing the problem, exploring options and prototyping before committing to build.</p></div><div class="cp-card  reveal" style="--o:7" data-k="4"><b>04</b><h3>Design Systems &amp; Scalability</h3><p>Design systems and reusable components that keep products consistent and help teams ship faster as they grow.</p></div><figure class="cp-ph cp-ph--med reveal" style="--o:8" data-k="5"><img src="assets/caps/photo-leadership.webp" alt="A design leader guiding a team discussion around product screens" width="460" height="455" loading="lazy" decoding="async"></figure><div class="cp-card cp-card--under reveal" style="--o:9" data-k="5"><b>05</b><h3>Product Design Leadership</h3><p>Leading design teams and working with product, engineering and business leaders to set direction and raise the quality bar.</p></div></div>
+      <div class="cp-col cp-col--b cp-par"><div class="cp-card  reveal" style="--o:1" data-k="1"><b>01</b><h3>AI Product Strategy &amp; Design</h3><p>Bringing AI into products where it genuinely helps people, and into the design workflow to speed up research, ideation and prototyping.</p></div><figure class="cp-ph cp-ph--med reveal" style="--o:2" data-k="2"><img src="assets/caps/photo-ux-ui.webp" alt="A user-testing session with an app prototype on a phone" width="460" height="455" loading="lazy" decoding="async"></figure><div class="cp-card cp-card--under reveal" style="--o:3" data-k="2"><b>02</b><h3>UX/UI Design &amp; Research</h3><p>Understanding users first, then designing clear, accessible flows and polished interfaces across mobile and web.</p></div><figure class="cp-ph cp-ph--tall reveal" style="--o:6" data-k="4"><img src="assets/caps/photo-design-systems.webp" alt="A monitor showing a design system of components, colours and type" width="460" height="650" loading="lazy" decoding="async"></figure><figure class="cp-ph cp-ph--med reveal" style="--o:10" data-k="6"><img src="assets/caps/photo-transformation.webp" alt="Paper forms beside a tablet and phone showing digital dashboards" width="460" height="455" loading="lazy" decoding="async"></figure><div class="cp-card cp-card--under reveal" style="--o:11" data-k="6"><b>06</b><h3>Digital Transformation</h3><p>Moving complex processes into simple digital products, from fintech and banking to enterprise platforms and e-learning.</p></div></div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work" aria-labelledby="work-title">
+    <div class="glow" aria-hidden="true" style="--x:8%;--y:60px;--w:700px;--a:.75;--r:-14deg;--t:7.2s;--dl:-2.3s"><i></i></div>
+    <div class="work__head">
+      <div class="reveal">
+        <p class="eyebrow">Portfolio</p>
+        <h2 id="work-title">The work, in<br><span>four chapters.</span></h2>
+      </div>
+      <p class="reveal" style="--d:.1s">Mobile apps · Websites · Systems · Branding &amp; print. Pick a chapter, then use the arrows, swipe or your keyboard to move through its projects.</p>
+    </div>
+    <div id="chapters"></div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="certs" id="certifications" aria-labelledby="certs-title">
+    <div class="glow" aria-hidden="true" style="--x:90%;--y:-40px;--w:520px;--a:.7;--r:18deg;--t:6.1s;--dl:-1.1s"><i></i></div>
+    <div class="certs__head reveal">
+      <p class="eyebrow">Recognition</p>
+      <h2 id="certs-title">Awards &amp; <span>certifications.</span></h2>
+    </div>
+    <ul class="certs__grid">
+      <li class="cert reveal"><div class="cert__logo" data-logo="nngroup"><img src="assets/certs/nngroup.png" alt="Nielsen Norman Group UX Certified badge" loading="lazy" decoding="async"></div></li>
+      <li class="cert reveal" style="--d:.08s"><div class="cert__logo" data-logo="google"><img src="assets/certs/google.png" alt="Google logo" loading="lazy" decoding="async"></div></li>
+      <li class="cert reveal" style="--d:.16s"><div class="cert__logo" data-logo="ixdf"><img src="assets/certs/ixdf.png" alt="Interaction Design Foundation logo" loading="lazy" decoding="async"></div></li>
+      <li class="cert reveal" style="--d:.24s"><div class="cert__logo" data-logo="adobe"><img src="assets/certs/adobe.png" alt="Adobe logo" loading="lazy" decoding="async"></div></li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="glow" aria-hidden="true" style="--x:30%;--y:-20px;--w:760px;--a:.8;--r:-6deg;--t:6.8s;--dl:-3.0s"><i></i></div>
+    <p class="contact__lead reveal">Got a project?</p>
+    <div class="ct2">
+      <div class="ct2__copy">
+        <h2 id="contact-title" class="reveal-words" data-split>let’s talk</h2>
+        <p class="contact__p reveal" style="--d:.2s">I’m available for design leadership roles and international independent work.</p>
+        <a class="btn btn--primary reveal" style="--d:.3s" href="mailto:angelawad2@gmail.com">Get in touch</a>
+      </div>
+      <div class="contact__a amotion" id="contactAWrap" aria-hidden="true"><svg class="amark" id="contactA" viewBox="0 60 340 340"><path class="amark__body" pathLength="1" fill-rule="evenodd" d="M250 60 V80 A170 170 0 1 0 250 380 V400 H340 V60 Z M90 230 A80 80 0 1 0 250 230 A80 80 0 1 0 90 230 Z"/><path class="amark__glint" pathLength="1" d="M250 60 V80 A170 170 0 1 0 250 380 V400 H340 V60 Z M90 230 A80 80 0 1 0 250 230 A80 80 0 1 0 90 230 Z"/></svg></div>
+    </div>
+    <ul class="cl">
+      <li class="reveal"><span>LinkedIn</span><a href="https://www.linkedin.com/in/angelawad/" target="_blank" rel="noopener">linkedin.com/in/angelawad</a></li>
+      <li class="reveal" style="--d:.08s"><span>Website</span><a href="https://www.jdsolus.com" target="_blank" rel="noopener">www.jdsolus.com</a></li>
+      <li class="reveal" style="--d:.16s"><span>Email</span><a href="mailto:angelawad2@gmail.com">angelawad2@gmail.com</a><button class="copy-btn" type="button" data-copy="angelawad2@gmail.com">Copy</button></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">© Angela Awad. All project screens are original portfolio work.</footer>
+
+<script>
+/* ======================================================
+   PROJECT DATA — edit here.
+   To add a mockup: put the file in assets/mockups/ and set  mock: 'assets/mockups/bcm.webp'
+   desc: '' shows a "to confirm" note until you write one.
+   ====================================================== */
+const LAPS = { 'MLG':{ bg:'assets/mockups/mlg-laptop.webp', w:2332, h:1364, focus:[1198,653], fill:'#F9A01E', island:false, overlay:{ src:'assets/mockups/mlg-notch.png', x:1142, y:274, w:114, h:28 }, screen:{ w:430, h:275, radius:6, transform:'matrix3d(2.264375341,0,0,0,-0.05306240849,2.240131538,0,-4.429249457e-05,0,0,1,0,711.1593018,279.4585571,0,1)' }, screens:[{ s:'assets/mockups/mlg-page.webp', c:'Home page', r:3.573, ms:9000 }] }, 'SAWT':{ bg:'assets/mockups/lap-sawt.webp', w:2050, h:1368, focus:[964,640], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-sawt-notch.png', x:895, y:218, w:108, h:30 }, screen:{ w:430, h:324, radius:8, transform:'matrix3d(3.018221929,-0.0322795139,0,0.0004794376883,0.3568674925,2.513338523,0,-2.824058565e-05,0,0,1,0,403.8784485,250.6775055,0,1)' }, screens:[{ s:'assets/mockups/lap-sawt-home.webp', c:'Home page', r:3.337, ms:10109 }] }, 'SKHC':{ bg:'assets/mockups/lap-skhc.webp', w:1200, h:798, focus:[594,387], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-skhc-notch.png', x:560, y:142, w:70, h:20 }, screen:{ w:430, h:280, radius:8, transform:'matrix3d(1.455136297,0.006382259182,0,1.160415036e-05,0.01020042712,1.458274157,0,2.328063689e-05,0,0,1,0,283.9079285,144.6313324,0,1)' }, screens:[{ s:'assets/mockups/lap-skhc-home.webp', c:'Home page', r:4.916, ms:14086 }] }, 'Anma':{ bg:'assets/mockups/lap-anma.webp', w:1858, h:1236, focus:[994,630], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-anma-notch.png', x:932, y:266, w:103, h:29 }, screen:{ w:430, h:299, radius:8, transform:'matrix3d(1.992481592,-0.0627699947,0,-9.656877105e-05,-0.005282601069,2.086380719,0,-3.647131015e-06,0,0,1,0,535.9316406,279.5957642,0,1)' }, screens:[{ s:'assets/mockups/lap-anma-home.webp', c:'Home page', r:5.423, ms:15181 }] }, 'Autograph':{ bg:'assets/mockups/lap-autograph-web.webp', w:2114, h:1528, focus:[1206,665], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-autograph-web-notch.png', x:1163, y:250, w:118, h:34 }, screen:{ w:430, h:311, radius:8, transform:'matrix3d(2.146487583,0.09337573767,0,-0.0001330164397,-0.2434283359,2.278768605,0,-4.134198765e-05,0,0,1,0,726.0784302,225.4007263,0,1)' }, screens:[{ s:'assets/mockups/lap-autograph-web-page.webp', c:'Home page', r:2.19, ms:10568 }] } };
+const SYS = { 'BCM system':{ bg:'assets/mockups/mon-m1.webp', w:1332, h:884, focus:[649,358], fill:'#d9d9d9', island:false, screen:{ w:430, h:274, radius:2, transform:'matrix3d(1.52445086,-0.05732671047,0,0.0001464589899,0.1303627326,1.407252676,0,-5.432937768e-05,0,0,1,0,328.8045959,153.8040924,0,1)' }, screens:[{ s:'assets/mockups/sys-bcm-system/01.webp', c:'Screen 1', r:0.842, ms:2040 }] }, 'Patient system':{ bg:'assets/mockups/mon-m2.webp', w:1340, h:1000, focus:[661,477], fill:'#d9d9d9', island:false, screen:{ w:430, h:269, radius:2, transform:'matrix3d(1.981953466,0,0,0,0,1.980111558,0,0,0,0,1,0,234.8800049,180.6750031,0,1)' }, screens:[{ s:'assets/mockups/sys-patient-system-main.webp', c:'Patient dashboard', r:0.786, ms:4379 }] }, 'KnowledgeHub':{ bg:'assets/mockups/mon-m3.webp', w:1352, h:1238, focus:[689,524], fill:'#d9d9d9', island:false, screen:{ w:430, h:242, radius:2, transform:'matrix3d(2.3264148,-2.178894794e-06,0,-6.709401178e-11,-0.0007799519569,2.320969592,0,-4.130651763e-06,0,0,1,0,188.8205566,212.7752228,0,1)' }, screens:[{ s:'assets/mockups/sys-knowledgehub-main.webp', c:'Knowledge hub home', r:0.741, ms:4420 }] }, 'Edumatch':{ bg:'assets/mockups/lap-autograph-web.webp', w:2114, h:1528, focus:[1206,665], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-autograph-web-notch.png', x:1163, y:250, w:118, h:34 }, screen:{ w:430, h:311, radius:8, transform:'matrix3d(2.146487583,0.09337573767,0,-0.0001330164397,-0.2434283359,2.278768605,0,-4.134198765e-05,0,0,1,0,726.0784302,225.4007263,0,1)' }, screens:[{ s:'assets/mockups/sys-edumatch-main.webp', c:'Payment confirmation', r:2.703, ms:8682 }] }, 'Visit management':{ bg:'assets/mockups/lap-anma.webp', w:1858, h:1236, focus:[994,630], fill:'#1a1a1a', island:false, overlay:{ src:'assets/mockups/lap-anma-notch.png', x:932, y:266, w:103, h:29 }, screen:{ w:430, h:299, radius:8, transform:'matrix3d(1.992481592,-0.0627699947,0,-9.656877105e-05,-0.005282601069,2.086380719,0,-3.647131015e-06,0,0,1,0,535.9316406,279.5957642,0,1)' }, screens:[{ s:'assets/mockups/sys-visit-management/01.webp', c:'Screen 1', r:0.722, ms:1657 }, { s:'assets/mockups/sys-visit-management/02.webp', c:'Screen 2', r:0.717, ms:1647 }, { s:'assets/mockups/sys-visit-management/03.webp', c:'Screen 3', r:0.717, ms:1647 }] } };
+const CHAPTERS = [
+  { id:'mobile', no:'01', title:'Mobile apps', unit:'app', items:[
+    { name:'Dreem', desc:'The mobile app for Dreem\u2019s baking-mix products, designed alongside the website: sign in, browse products, discover recipes and add what a recipe needs to the cart.', tags:['Mobile app','E-commerce'],
+      device:{ bg:'assets/mockups/dreem-app/mockup.webp', w:1242, h:1174, focus:[623,620], fill:'#3a3d44', island:false,
+        overlay:{ src:'assets/mockups/dreem-app/cam.png', x:609, y:272, w:26, h:26 },
+        screen:{ w:430, h:934, radius:25, transform:'matrix3d(0.7530731201,0,0,0,0,0.7696182937,0,0,0,0,1,0,461.5892639,260.0882568,0,1)' },
+        screens:[
+          { s:'assets/mockups/dreem-app/01.webp', c:'Splash', r:2.171 },
+          { s:'assets/mockups/dreem-app/02.webp', c:'Sign in', r:2.171 },
+          { s:'assets/mockups/dreem-app/03.webp', c:'Sign up', r:2.171 },
+          { s:'assets/mockups/dreem-app/04.webp', c:'Home', r:5.312 },
+          { s:'assets/mockups/dreem-app/05.webp', c:'Menu', r:2.171 },
+          { s:'assets/mockups/dreem-app/06.webp', c:'Products', r:4.823 },
+          { s:'assets/mockups/dreem-app/07.webp', c:'Recipes', r:2.171 },
+          { s:'assets/mockups/dreem-app/08.webp', c:'Add to cart', r:2.171 }
+        ]} },
+    { name:'masaken', desc:'A mobile flow that introduces an AI assistant during onboarding, then lands on a project dashboard.', tags:['AI assistant','Onboarding','Dashboard'],
+      device:{ bg:'assets/mockups/masaken/mockup.webp', w:2070, h:1556, focus:[1097,742],
+        screen:{ w:446, h:962, radius:58, transform:'matrix3d(0.9476770292,0.3356180788,0,-1.800764045e-07,-0.3351852629,0.9475622323,0,2.059505313e-07,0,0,1,0,1047.007544,211.9971734,0,1)' },
+        screens:[
+        { s:'assets/mockups/masaken/01.webp', c:'Welcome', r:2.1674 },
+        { s:'assets/mockups/masaken/02.webp', c:'AI guidance', r:2.1674 },
+        { s:'assets/mockups/masaken/03.webp', c:'Project setup', r:2.1674 },
+        { s:'assets/mockups/masaken/04.webp', c:'Scan invoices', r:2.1674 },
+        { s:'assets/mockups/masaken/05.webp', c:'Permits lookup', r:2.1674 },
+        { s:'assets/mockups/masaken/06.webp', c:'Sign in', r:2.1674 },
+        { s:'assets/mockups/masaken/07.webp', c:'My projects', r:2.1674 }
+      ]} },
+    { name:'Autograph', desc:'An assistant-led money app: guided onboarding, a radial service menu, and a wallet for transfers, transactions and bills.', tags:['Assistant-led','Wallet'],
+      device:{ bg:'assets/mockups/autograph/mockup.webp', w:850, h:638, focus:[425,322], fill:'#F9A01E',
+        screen:{ w:430, h:932, radius:52, transform:'matrix3d(0.4273512669,0.3138084704,0,1.068867074e-06,-0.372646328,0.363914131,0,-1.393885743e-06,0,0,1,0,506.2973633,84.91975403,0,1)' },
+        screens:[
+        { s:'assets/mockups/autograph/01.webp', c:'Welcome', r:2.1747 },
+        { s:'assets/mockups/autograph/02.webp', c:'Sign in', r:2.1747 },
+        { s:'assets/mockups/autograph/03.webp', c:'Radial menu', r:2.1806 },
+        { s:'assets/mockups/autograph/04.webp', c:'Services', r:2.1747 },
+        { s:'assets/mockups/autograph/05.webp', c:'Service focus', r:2.1747 },
+        { s:'assets/mockups/autograph/06.webp', c:'Pick a category', r:2.1806 },
+        { s:'assets/mockups/autograph/07.webp', c:'My WPS', r:2.8763 },
+        { s:'assets/mockups/autograph/08.webp', c:'My wallet', r:5.6502 },
+        { s:'assets/mockups/autograph/09.webp', c:'Transactions', r:2.4731 },
+        { s:'assets/mockups/autograph/10.webp', c:'Send money', r:2.1667 },
+        { s:'assets/mockups/autograph/11.webp', c:'Transaction history', r:3.4711 },
+        { s:'assets/mockups/autograph/12.webp', c:'Pay bills', r:2.336 }
+      ]} },
+    { name:'ABH', desc:'Employee app and desktop portal for a holding group: news, e-services, request status, leave balances and events.', tags:['Employee services','Portal'],
+      device:{ bg:'assets/mockups/abh/mockup.webp', w:1482, h:1100, focus:[530,510], fill:'#F9A01E', island:false,
+        screen:{ w:430, h:899, radius:51, transform:'matrix3d(0.6555262571,-0.3708788699,0,1.110827217e-10,0.370716591,0.6552394165,0,-1.230346901e-10,0,0,1,0,222.2395172,294.9868469,0,1)' },
+        screens:[
+        { s:'assets/mockups/abh/02.webp', c:'Home', r:3.5213 },
+        { s:'assets/mockups/abh/03.webp', c:'Profile', r:2.4594 },
+        { s:'assets/mockups/abh/01.webp', c:'Welcome', r:2.1707 },
+        { s:'assets/mockups/abh/04.webp', c:'Logged out', r:2.2077 }
+      ]} },
+    { name:'Blesspayment', desc:'Card payment app: physical and virtual cards, card controls and Apple Pay set-up.', tags:['Payments','Mobile app'],
+      device:{ bg:'assets/mockups/blesspayment/mockup.webp', w:1772, h:1170, focus:[973,489], fill:'#F9A01E', island:false,
+        overlay:{ src:'assets/mockups/blesspayment/notch.png', x:1034, y:182, w:169, h:71 },
+        screen:{ w:430, h:926, radius:54, transform:'matrix3d(0.7109137693,0.2204154325,0,-4.279682416e-05,-0.4010356654,0.5206827894,0,-9.952454812e-05,0,0,1,0,957.0739746,160.1096497,0,1)' },
+        screens:[
+        { s:'assets/mockups/blesspayment/01.webp', c:'Physical card', r:2.164 },
+        { s:'assets/mockups/blesspayment/02.webp', c:'Manage card', r:2.164 },
+        { s:'assets/mockups/blesspayment/03.webp', c:'Virtual card', r:2.164 },
+        { s:'assets/mockups/blesspayment/04.webp', c:'Card added', r:2.164 },
+        { s:'assets/mockups/blesspayment/05.webp', c:'Apple Pay confirmation', r:2.164 },
+        { s:'assets/mockups/blesspayment/06.webp', c:'Ready for Apple Pay', r:2.164 }
+      ]} },
+    { name:'CUJU', desc:'A football development app: challenges, player profiles and scouting.', tags:['Sports'],
+      device:{ bg:'assets/mockups/cuju/mockup.webp', w:1650, h:1094, focus:[837,560], fill:'#F9A01E', island:false,
+        screen:{ w:400, h:950, radius:52, fit:'cover', transform:'matrix3d(0.8873471699,-0.3459363576,0,9.303784184e-05,0.3664528111,0.4906748474,0,-0.0001296372366,0,0,1,0,435.3125629,345.6677151,0,1)' },
+        screens:[
+        { s:'assets/mockups/cuju/01.webp', c:'Scout exposure', r:2.3733 },
+        { s:'assets/mockups/cuju/02.webp', c:'Age', r:2.3733 },
+        { s:'assets/mockups/cuju/03.webp', c:'Welcome back', r:2.3733 },
+        { s:'assets/mockups/cuju/04.webp', c:'News feed', r:2.3733 }
+      ]} },
+    { name:'FIKR', desc:'Mobile app with a keypad-led payment flow: split payment, cash back, partial refund and reconcile.', tags:['Payments'],
+      device:{ bg:'assets/mockups/fikr/mockup.webp', w:2400, h:1496, focus:[1210,760], fill:'#F9A01E', island:false,
+        overlay:{ src:'assets/mockups/fikr/cam.png', x:1180, y:242, w:42, h:40 },
+        screen:{ w:430, h:930, radius:34, transform:'matrix3d(0.796690189,-0.03993866043,0,-0.0001093527592,-0.00127022745,0.978466546,0,-1.257427552e-06,0,0,1,0,999.5966187,243.5849762,0,1)' },
+        screens:[
+        { s:'assets/mockups/fikr/01.webp', c:'New payment', r:2.4194 },
+        { s:'assets/mockups/fikr/02.webp', c:'Split payment', r:2.6559 },
+        { s:'assets/mockups/fikr/03.webp', c:'Cash back', r:2.6559 },
+        { s:'assets/mockups/fikr/04.webp', c:'Authorize payment', r:2.439 },
+        { s:'assets/mockups/fikr/05.webp', c:'Partial refund', r:2.6478 },
+        { s:'assets/mockups/fikr/06.webp', c:'Reconcile', r:2.4431 }
+      ]} },
+    { name:'Robox', desc:'Checking in and out with face verification, and making requests such as leaves and excuses.', tags:['Attendance','Face check'],
+      device:{ bg:'assets/mockups/robox/mockup.webp', w:1472, h:1106, focus:[755,525], fill:'#F9A01E',
+        screen:{ w:430, h:931, radius:60, transform:'matrix3d(0.6206872761,-0.3347167916,0,7.031804415e-05,0.4008567567,0.4618435571,0,-7.14235628e-05,0,0,1,0,414.9509888,359.0322266,0,1)' },
+        screens:[
+        { s:'assets/mockups/robox/01.webp', c:'Home', r:2.1613 },
+        { s:'assets/mockups/robox/02.webp', c:'Checked in', r:2.1613 },
+        { s:'assets/mockups/robox/03.webp', c:'Camera', r:2.1613 },
+        { s:'assets/mockups/robox/04.webp', c:'Face check', r:2.1613 },
+        { s:'assets/mockups/robox/05.webp', c:'Verifying', r:2.1613 },
+        { s:'assets/mockups/robox/06.webp', c:'Check-in failed', r:2.1613 }
+      ]} },
+    { name:'Employment HR App', desc:'', tags:['HR','Mobile'],
+      device:{ bg:'assets/mockups/hr/mockup.webp', w:2306, h:1522, focus:[1150,760], fill:'#F9A01E', island:false,
+        overlay:{ src:'assets/mockups/hr/notch.webp', x:990, y:170, w:320, h:56 },
+        screen:{ w:430, h:930, radius:60, transform:'matrix3d(1.253114212,0,0,0,0,1.253564995,0,0,0,0,1,0,879.5804443,174.5922699,0,1)' },
+        screens:[
+        { s:'assets/mockups/hr/login.webp', c:'Sign in', r:2.165 },
+        { s:'assets/mockups/hr/profile.webp', c:'Profile', r:2.165 },
+        { s:'assets/mockups/hr/gallery.webp', c:'Gallery', r:2.165 },
+        { s:'assets/mockups/hr/forget.webp', c:'Forgot password', r:2.165 }
+      ]} },
+    { name:'Household', desc:'', tags:['Mobile','Services'], mock:'assets/mockups/household/mockup.webp', fill:true, pos:'center' },
+    { name:'Hotel door concept', desc:'', tags:['Concept'],
+      device:{ bg:'assets/mockups/hotel-door/mockup.webp', w:852, h:726, focus:[430,360], fill:'#F9A01E', island:false,
+        notch:{ x:129, w:172, h:37, color:'#CACED7' },
+        screen:{ w:430, h:932, radius:56, transform:'matrix3d(0.5314043035,0.01436157702,0,3.367023918e-05,-0.001555072,0.5975775212,0,-4.923014007e-06,0,0,1,0,315.6330566,76.06975555,0,1)' },
+        screens:[
+        { s:'assets/mockups/hotel-door/01.webp', c:'Key locked', r:2.1611 },
+        { s:'assets/mockups/hotel-door/02.webp', c:'Key unlocked', r:2.1611 }
+      ]} }
+  ]},
+
+  { id:'websites', no:'02', title:'Websites', unit:'website', items:
+    [{ name:'Dreem', desc:'A new website template for Dreem\u2019s baking-mix products. We rebuilt the structure around what a visitor comes to do \u2014 discover the products, see what\u2019s trending and find recipes to make with them \u2014 then turned it into a prototype with fresh visual directions to choose from. The client loved the new direction.', tags:['Website','Template','Prototype'],
+      device:{ bg:'assets/mockups/dreem/tablet.webp', w:1248, h:1358, focus:[626,738], fill:'#141a2e', island:false,
+        screen:{ w:430, h:580, radius:12, transform:'matrix3d(0.9846566062,-0.00344668971,0,-7.710856456e-06,-0.03091455219,0.9480989661,0,-5.481381265e-05,0,0,1,0,411.4084473,446.1937256,0,1)' },
+        screens:[
+          { s:'assets/mockups/dreem/01.webp', c:'Home', r:2.794, ms:7000 },
+          { s:'assets/mockups/dreem/02.webp', c:'Recipes', r:1.716, ms:3000 }
+        ]} }]
+    .concat(['The D.','Transportation','MOF','APF','FFM','MLG','SAWT','SKHC','Anma','Autograph']
+    .map(n => ({ name:n, tags:['Website'], desc: n==='The D.' ? 'A website for a company that builds applications powered by machine learning, with case studies and a showcase of its apps.' : '', ...(LAPS[n] ? { device:LAPS[n] } : {}) })))
+  },
+
+  { id:'systems', no:'03', title:'Systems', unit:'system', items:[
+    { name:'BCM system', desc:'A Business Continuity Management System designed from the ground up, balancing complex enterprise operations with a simple, scalable experience across departments and roles.', tags:['Enterprise','Role-based UX','Design system'],
+      results:[['91%','task completion'],['8.8/10','satisfaction'],['−45%','navigation errors'],['−30%','support requests']], source:'Source: as published on jdsolus.com/bcm' },
+    { name:'Patient system', desc:'', tags:['System'] },
+    { name:'KnowledgeHub', desc:'', tags:['System'] },
+    { name:'Edumatch', desc:'', tags:['System'] },
+    { name:'Visit management', desc:'', tags:['System'] }
+  ].map(it => SYS[it.name] ? { ...it, device:SYS[it.name] } : it)},
+
+  { id:'print', no:'04', title:'Branding & print', unit:'piece', items:
+    [
+      { name:'Kelma flyer', desc:'', tags:['Print','Tri-fold flyer'], mock:'assets/print/kelma-flyer.webp', fill:true },
+      { name:'Smart flyer', desc:'', tags:['Print','Flyer'], mock:'assets/print/smart-flyer.webp', fill:true },
+      { name:'Linkdev invitation', desc:'', tags:['Print','Invitation'], mock:'assets/print/linkdev-invitation.webp', fill:true },
+      { name:'Singularity booklet', desc:'', tags:['Print','Booklet'], mock:'assets/print/singularity-booklet.webp', fill:true },
+      { name:'Singularity booklet 2', desc:'', tags:['Print','Booklet'], mock:'assets/print/singularity-booklet-2.webp', fill:true }
+    ]
+  }
+];
+
+
+/* Images from the old site, shown until each project gets its mockup. */
+const WORK_IMAGES = {
+"systems:BCM system": {
+"mock": "assets/work/bcm-system.webp",
+"fill": true,
+"pos": "top"
+},
+"systems:Patient system": {
+"mock": "assets/work/patient-system.webp",
+"fill": false,
+"pos": "top"
+},
+"systems:KnowledgeHub": {
+"mock": "assets/work/knowledgehub.webp",
+"fill": false,
+"pos": "top"
+},
+"systems:Edumatch": {
+"mock": "assets/work/edumatch.webp",
+"fill": true,
+"pos": "top"
+},
+"systems:Visit management": {
+"mock": "assets/work/visit-management.webp",
+"fill": false,
+"pos": "top"
+},
+"mobile:Hotel door concept": {
+"mock": "assets/work/hotel-door-concept.webp",
+"fill": true,
+"pos": "center"
+},
+"websites:Africa Business": {
+"mock": "assets/work/africa-business.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Agricultural": {
+"mock": "assets/work/agricultural.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:CID": {
+"mock": "assets/work/cid.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Cairo IA": {
+"mock": "assets/work/cairo-ia.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Dream": {
+"mock": "assets/work/dream.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:The D.": {
+"mock": "assets/work/the-d.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Transportation": {
+"mock": "assets/work/transportation.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:MOF": {
+"mock": "assets/work/mof.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:SDL": {
+"mock": "assets/work/sdl.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Shakra": {
+"mock": "assets/work/shakra.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:APF": {
+"mock": "assets/work/apf.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:FFM": {
+"mock": "assets/work/ffm.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:MLG": {
+"mock": "assets/work/mlg.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:SAWT": {
+"mock": "assets/work/sawt.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:SKHC": {
+"mock": "assets/work/skhc.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:FIKR": {
+"mock": "assets/work/fikr-web.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Apple Pay page": {
+"mock": "assets/work/apple-pay-page.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Anma": {
+"mock": "assets/work/anma.webp",
+"fill": true,
+"pos": "top"
+},
+"websites:Autograph": {
+"mock": "assets/work/autograph-web.webp",
+"fill": true,
+"pos": "top"
+}
+};
+CHAPTERS.forEach(ch => ch.items.forEach(it => { const w = WORK_IMAGES[ch.id + ':' + it.name]; if (w && !it.device && !it.mock) Object.assign(it, w, w.fill ? {} : { pos: 'center' }); }));
+
+(() => {
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  const pad = n => String(n).padStart(2,'0');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  /* --- split headings into words for the rise animation (text stays readable to screen readers) --- */
+  $$('[data-split]').forEach(h => {
+    let i = 0;
+    const wrap = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(t => {
+            if (!t) return;
+            if (/^\s+$/.test(t)) { frag.append(t); return; }
+            const w = document.createElement('span'); w.className = 'w';
+            const inner = document.createElement('span'); inner.textContent = t; inner.style.setProperty('--i', i++);
+            w.append(inner); frag.append(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) wrap(n);
+      });
+    };
+    wrap(h);
+  });
+
+  /* --- hero intro: once, after fonts are ready (never blocks reading: capped at 600ms wait) --- */
+  const start = () => {
+    document.body.classList.add('is-loaded');
+    const a = $('#heroA'); if (a) setTimeout(() => a.classList.add('is-drawn'), RM ? 0 : 250);
+  };
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 600))]).then(() => requestAnimationFrame(start));
+
+  /* --- device mockup: real screens mapped onto the phone in the mockup photo --- */
+  const deviceHTML = p => {
+    const d = p.device, sc = d.screen;
+    return `<div class="mock mock--device" data-device="${esc(p.name)}"${d.fill ? ` style="background:${esc(d.fill)}"` : ''}>
+      <div class="stage" style="width:${d.w}px;height:${d.h}px">
+        <img class="stage__bg" src="${esc(d.bg)}" alt="" width="${d.w}" height="${d.h}" loading="lazy" decoding="async">
+        <div class="screen" style="width:${sc.w}px;height:${sc.h}px;border-radius:${sc.radius}px;transform:${sc.transform}">
+          ${d.screens.map((m, k) => `<img src="${esc(m.s)}" alt="${esc(p.name)}: ${esc(m.c)}" loading="lazy" decoding="async"${k===0?' class="on"':''}${sc.fit === 'cover' ? ` style="width:auto;height:100%;left:50%;margin-left:${(-sc.h / m.r / 2).toFixed(1)}px"` : ''}>`).join('')}
+          ${d.island === false ? '' : '<b class="isl" aria-hidden="true"><span></span></b>'}
+          ${d.notch ? `<b class="notch" aria-hidden="true" style="left:${d.notch.x}px;width:${d.notch.w}px;height:${d.notch.h}px;background:${esc(d.notch.color)}"></b>` : ''}
+        </div>
+        ${d.overlay ? `<img class="stage__ov" src="${esc(d.overlay.src)}" alt="" style="left:${d.overlay.x}px;top:${d.overlay.y}px;width:${d.overlay.w}px;height:${d.overlay.h}px">` : ''}
+      </div>
+      <div class="devctl">
+        <span class="devcap" aria-live="off"></span>
+        <button class="devbtn" type="button" aria-pressed="false" aria-label="Pause screen animation"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M5 3v10M11 3v10"/><path class="i-play" d="M5 3l8 5-8 5z"/></svg></button>
+      </div>
+    </div>`;
+  };
+
+  /* --- build chapters --- */
+  const host = $('#chapters');
+  host.innerHTML = CHAPTERS.map(ch => `
+    <article class="chapter" id="ch-${ch.id}" role="tabpanel" aria-labelledby="tab-${ch.id}"${ch.id === CHAPTERS[0].id ? '' : ' hidden'}>
+      <div class="chapter__bar">
+        <div><p class="chapter__no">Chapter ${ch.no}</p><h3 id="ch-${ch.id}-t">${esc(ch.title)}</h3></div>
+        <div class="ctrl">
+          <p class="count" aria-live="polite"><b>01</b> / ${pad(ch.items.length)}</p>
+          <button class="arrow arrow--prev" type="button" aria-label="Previous ${ch.unit}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5"/></svg></button>
+          <button class="arrow arrow--next" type="button" aria-label="Next ${ch.unit}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+        </div>
+      </div>
+      <div class="viewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${esc(ch.title)}: use left and right arrow keys">
+        <div class="track">
+          ${ch.items.map((p, k) => `
+          <div class="slide${k===0?' is-current':''}" role="group" aria-roledescription="slide" aria-label="${k+1} of ${ch.items.length}: ${esc(p.name)}"${k===0?'':' aria-hidden="true" inert'}>
+            <div class="slide__txt">
+              <p class="slide__idx">${pad(k+1)}</p>
+              <h4>${esc(p.name)}</h4>
+              ${p.desc ? `<p class="slide__desc">${esc(p.desc)}</p>
+              <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+              ${p.results ? `<div><div class="res">${p.results.map(r => `<p><b>${esc(r[0])}</b><span>${esc(r[1])}</span></p>`).join('')}</div><p class="src" style="margin-top:10px">${esc(p.source)}</p></div>` : ''}
+            </div>
+            ${p.device ? deviceHTML(p) : p.mock
+              ? `<div class="mock${p.fill ? ' mock--fill' : ''}"><img${p.pos ? ` style="object-position:50% ${p.pos === 'top' ? '0' : '50%'}"` : ''} src="${esc(p.mock)}" alt="${esc(p.name)} mockup" loading="lazy" decoding="async"></div>`
+              : `<div class="mock mock--empty" role="img" aria-label="${esc(p.name)} mockup coming soon"><b>${esc(p.name)} mockup</b><span>Awaiting mockup file</span></div>`}
+          </div>`).join('')}
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true"><i style="transform:scaleX(${1/ch.items.length})"></i></div>
+    </article>`).join('');
+
+
+  /* --- chapter tabs: one chapter at a time, line slides under the active tab --- */
+  (() => {
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs'; tabs.setAttribute('role', 'tablist'); tabs.setAttribute('aria-label', 'Work chapters');
+    tabs.innerHTML = CHAPTERS.map((ch, i) => `<button class="tab" role="tab" id="tab-${ch.id}" aria-controls="ch-${ch.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><small>Chapter ${ch.no}</small><span>${esc(ch.title)}<b>${pad(ch.items.length)}</b></span></button>`).join('') + '<i class="tabs__line" aria-hidden="true"></i>';
+    host.before(tabs);
+    const btns = $$('.tab', tabs), line = $('.tabs__line', tabs), panels = CHAPTERS.map(ch => document.getElementById('ch-' + ch.id));
+    let cur = 0;
+    const place = () => { const b = btns[cur]; line.style.width = b.offsetWidth + 'px'; line.style.transform = `translateX(${b.offsetLeft}px)`; };
+    const select = (i, focus) => {
+      if (i === cur) return;
+      btns[cur].setAttribute('aria-selected', 'false'); btns[cur].tabIndex = -1; panels[cur].hidden = true;
+      cur = i;
+      btns[i].setAttribute('aria-selected', 'true'); btns[i].tabIndex = 0; if (focus) btns[i].focus();
+      const p = panels[i]; p.hidden = false;
+      if (!RM) { p.classList.add('is-in', 'is-switching'); void p.offsetWidth; p.classList.remove('is-switching'); } else p.classList.add('is-in');
+      place(); btns[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      if (window.syncDevices) syncDevices();
+    };
+    btns.forEach((b, i) => b.addEventListener('click', () => select(i)));
+    tabs.addEventListener('keydown', e => {
+      const n = btns.length; let j = null;
+      if (e.key === 'ArrowRight') j = (cur + 1) % n; if (e.key === 'ArrowLeft') j = (cur - 1 + n) % n;
+      if (e.key === 'Home') j = 0; if (e.key === 'End') j = n - 1;
+      if (j !== null) { e.preventDefault(); select(j, true); }
+    });
+    new ResizeObserver(place).observe(tabs); requestAnimationFrame(place);
+    if (document.fonts) document.fonts.ready.then(place);
+  })();
+
+  /* --- carousel behaviour (one system for all four chapters) --- */
+  $$('.chapter').forEach((el, c) => {
+    const n = CHAPTERS[c].items.length, track = $('.track', el), slides = $$('.slide', el);
+    const prev = $('.arrow--prev', el), next = $('.arrow--next', el), count = $('.count b', el), bar = $('.progress i', el), vp = $('.viewport', el);
+    let i = 0;
+    const go = j => {
+      i = Math.max(0, Math.min(n - 1, j));
+      track.style.transform = `translateX(calc(${-i} * (100% + 24px)))`;
+      slides.forEach((s, k) => { const on = k === i; s.classList.toggle('is-current', on); s.toggleAttribute('inert', !on); on ? s.removeAttribute('aria-hidden') : s.setAttribute('aria-hidden', 'true'); });
+      count.textContent = pad(i + 1);
+      bar.style.transform = `scaleX(${(i + 1) / n})`;
+      prev.disabled = i === 0; next.disabled = i === n - 1;
+      if (window.syncDevices) syncDevices();
+    };
+    prev.onclick = () => go(i - 1);
+    next.onclick = () => go(i + 1);
+    vp.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(i - 1); }
+    });
+    let x0 = null;
+    vp.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') x0 = e.clientX; });
+    vp.addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1)); });
+    vp.addEventListener('pointercancel', () => x0 = null);
+    go(0);
+  });
+
+
+  /* --- device mockups: fit the photo, cycle the screens (only while visible, on the current slide, not paused) --- */
+  const devices = $$('[data-device]').map(el => {
+    const slide = el.closest('.slide'), c = CHAPTERS.findIndex(ch => ch.id === el.closest('.chapter').id.slice(3));
+    const item = CHAPTERS[c].items.find(it => it.device && it.name === el.dataset.device);
+    const d = item.device, stage = $('.stage', el), imgs = $$('.screen img', el), isl = $('.isl', el), islT = $('.isl span', el);
+    const cap = $('.devcap', el), btn = $('.devbtn', el), n = imgs.length;
+    const st = { el, slide, i: 0, t: 0, t2: 0, seen: false, paused: RM, running: false };
+    const fit = () => {
+      const w = el.clientWidth, h = el.clientHeight; if (!w || !h) return;
+      const k = d.contain ? Math.min(w / d.w, h / d.h) : Math.max(w / d.w, h / d.h) * 1.02;
+      let tx = w / 2 - d.focus[0] * k, ty = h / 2 - d.focus[1] * k;
+      if (d.contain) { tx = (w - d.w * k) / 2; ty = (h - d.h * k) / 2; } else { tx = Math.min(0, Math.max(w - d.w * k, tx)); ty = Math.min(0, Math.max(h - d.h * k, ty)); }
+      stage.style.transform = `translate(${tx}px,${ty}px) scale(${k})`;
+    };
+    new ResizeObserver(fit).observe(el); fit();
+    const show = j => {
+      st.i = j;
+      imgs.forEach((m, x) => { m.classList.toggle('on', x === j); if (x !== j) { m.style.transition = 'opacity .35s'; m.style.transform = 'none'; } else if (n === 1) { m.style.transition = 'transform 1.4s cubic-bezier(.45,0,.25,1)'; m.style.transform = 'none'; } });
+      cap.textContent = `${j + 1} / ${n} · ${d.screens[j].c}`;
+      if (!RM && isl) { islT.textContent = d.screens[j].c; isl.classList.add('open'); clearTimeout(st.t2); st.t2 = setTimeout(() => isl.classList.remove('open'), 1000); }
+    };
+    const step = () => {
+      if (!st.running) return;
+      const m = imgs[st.i], over = d.screen.fit === 'cover' ? 0 : d.screen.w * d.screens[st.i].r - d.screen.h;   // tall screens scroll before moving on
+      let hold = n === 1 ? 1900 : 1100;
+      if (over > 8) {
+        const dur = d.screens[st.i].ms || Math.min(2400, 800 + over * 1.2);
+        st.t = setTimeout(() => { if (!st.running) return; m.style.transition = `opacity .35s, transform ${dur}ms cubic-bezier(.45,0,.25,1)`; m.style.transform = `translateY(${-over}px)`; }, 500);
+        hold = 500 + dur + 400;
+      }
+      st.t = setTimeout(() => { if (!st.running) return; show((st.i + 1) % n); step(); }, hold);
+    };
+    st.start = () => { if (st.running || st.paused) return; st.running = true; clearTimeout(st.t); st.t = setTimeout(step, 300); };
+    st.stop = () => { st.running = false; clearTimeout(st.t); };
+    btn.onclick = () => {
+      st.paused = !st.paused; btn.setAttribute('aria-pressed', st.paused); btn.setAttribute('aria-label', (st.paused ? 'Play' : 'Pause') + ' screen animation');
+      el.classList.toggle('is-paused', st.paused); syncDevices();
+    };
+    if (RM) { btn.hidden = true; }
+    show(0);
+    return st;
+  });
+  window.syncDevices = () => devices.forEach(dv => {
+    const ok = dv.seen && dv.slide.classList.contains('is-current') && !document.hidden && !dv.paused;
+    ok ? dv.start() : dv.stop();
+  });
+  const ioD = new IntersectionObserver(es => es.forEach(e => { const dv = devices.find(x => x.el === e.target); dv.seen = e.isIntersecting; syncDevices(); }), { threshold: .35 });
+  devices.forEach(dv => ioD.observe(dv.el));
+  document.addEventListener('visibilitychange', () => syncDevices());
+
+
+  /* --- process: the arrow draws along the path and lights each step (plays when the section comes into view) --- */
+  (() => {
+    const pr = document.getElementById('pr'); if (!pr) return;
+    const svg = pr.querySelector('.pa'), live = svg.querySelector('.live'), ghost = svg.querySelector('.ghost'), arr = svg.querySelector('.arr'),
+      lis = [...pr.querySelectorAll('.ps li')], nds = lis.map(l => l.querySelector('.nd'));
+    let L = 0, fr = [], raf = 0, cur = 0;
+    const build = () => {
+      const r = pr.getBoundingClientRect(), pts = nds.map(n => { const b = n.getBoundingClientRect(); return [b.left - r.left + b.width / 2, b.top - r.top + b.height / 2]; }),
+        f = pts[0], l = pts[pts.length - 1], h = Math.abs(l[0] - f[0]) > Math.abs(l[1] - f[1]),
+        P = [h ? [f[0] - 70, f[1]] : [f[0], f[1] - 60], ...pts, h ? [l[0] + 100, l[1]] : [l[0], l[1] + 100]];
+      let d = 'M' + P[0][0] + ' ' + P[0][1];
+      for (let i = 1; i < P.length; i++) { const a = P[i - 1], b = P[i];
+        if (h) { const m = (a[0] + b[0]) / 2; d += `C${m} ${a[1]} ${m} ${b[1]} ${b[0]} ${b[1]}`; }
+        else { const m = (a[1] + b[1]) / 2; d += `C${a[0]} ${m} ${b[0]} ${m} ${b[0]} ${b[1]}`; } }
+      live.setAttribute('d', d); ghost.setAttribute('d', d); L = live.getTotalLength(); live.style.strokeDasharray = L;
+      fr = pts.map(p => { let best = 0, bd = 1e12; for (let i = 0; i <= 400; i++) { const q = live.getPointAtLength(L * i / 400), dd = (q.x - p[0]) ** 2 + (q.y - p[1]) ** 2; if (dd < bd) { bd = dd; best = i / 400; } } return best; });
+    };
+    const set = t => {
+      cur = t; live.style.strokeDashoffset = L * (1 - t);
+      const p = live.getPointAtLength(L * t), q = live.getPointAtLength(Math.min(L, L * t + 3)), a = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI;
+      arr.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') rotate(' + a + ')'); arr.style.opacity = t > 0 ? 1 : 0;
+      lis.forEach((li, i) => li.classList.toggle('on', t >= fr[i] - .004));
+    };
+    const play = () => {
+      cancelAnimationFrame(raf); build(); if (RM) { set(1); return; } set(0);
+      const t0 = performance.now(), D = 4600;
+      const tick = n => { const k = Math.min(1, (n - t0) / D); set(.5 - Math.cos(Math.PI * k) / 2); if (k < 1) raf = requestAnimationFrame(tick); };
+      raf = requestAnimationFrame(tick);
+    };
+    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) play(); else { cancelAnimationFrame(raf); build(); set(0); } }), { threshold: .35 }).observe(pr);
+    addEventListener('resize', () => { build(); set(cur); });
+  })();
+
+  /* --- reveal on scroll (one observer for everything) --- */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('is-in');
+    if (e.target.id === 'contactAWrap') $('#contactA').classList.add('is-drawn');
+    io.unobserve(e.target);
+  }), { threshold: .2, rootMargin: '0px 0px -8% 0px' });
+  $$('.reveal, .reveal-words, .chapter, #contactAWrap').forEach(el => io.observe(el));
+
+  /* --- odometer numbers: roll once when visible --- */
+  $$('.num').forEach(el => {
+    const v = el.dataset.n;
+    el.setAttribute('aria-label', v + '+');
+    el.innerHTML = [...v].map(() => `<span class="dg" aria-hidden="true"><span class="col">${Array.from({length:30}, (_, k) => `<i>${k % 10}</i>`).join('')}</span></span>`).join('') + '<span class="pl" aria-hidden="true">+</span>';
+    $$('.col', el).forEach((c, k) => { c.dataset.t = 20 + (+v[k]); if (RM) { c.style.transition = 'none'; c.style.transform = `translateY(-${c.dataset.t}em)`; } });
+  });
+  const io2 = new IntersectionObserver((es, ob) => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    $$('.col', e.target).forEach((c, k) => { c.style.transitionDelay = (k * .14) + 's'; c.style.transitionDuration = (2.2 + k * .35) + 's'; c.style.transform = `translateY(-${c.dataset.t}em)`; });
+    ob.unobserve(e.target);
+  }), { threshold: .4 });
+  $$('.num').forEach(n => io2.observe(n));
+
+  /* --- nav: hide on scroll down, show on scroll up; mark current section --- */
+  const nav = $('#nav'); let lastY = scrollY, ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const y = scrollY;
+      nav.classList.toggle('is-hidden', y > lastY && y > 200 && !nav.contains(document.activeElement));
+      lastY = y; ticking = false;
+    });
+  }, { passive: true });
+  const links = $$('.nav__links a[href^="#"]');
+  const io3 = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  ['work', 'contact'].forEach(id => io3.observe(document.getElementById(id)));
+
+
+  /* --- the "a" marks: follow the pointer and drift with scroll (no loops; stops when off screen) --- */
+  if (!RM) {
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    let mx = 0, my = 0, raf = 0;
+    if (fine) addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+    const marks = [
+      { el: $('#heroAWrap'), sec: $('.hero'), kind: 'hero' },
+      { el: $('#contactAWrap'), sec: $('#contact'), kind: 'contact' }
+    ].map(m => ({ ...m, on: false, x: 0, y: 0, r: 0 }));
+    const frame = () => {
+      raf = 0;
+      marks.forEach(m => {
+        if (!m.on) return;
+        const b = m.sec.getBoundingClientRect();
+        const g = m.kind === 'hero' ? 1.9 : 1;
+        let tx = mx * -34 * g, ty = my * -22 * g, tr = mx * 5 * g;
+        if (m.kind === 'hero') { const p = clamp(-b.top / b.height, 0, 1); ty += p * 140; tr += p * 14; }
+        else { const q = clamp((innerHeight - b.top) / (innerHeight + b.height), 0, 1); ty += (.5 - q) * 90; tr += (.5 - q) * 22; }
+        m.x += (tx - m.x) * .08; m.y += (ty - m.y) * .08; m.r += (tr - m.r) * .08;
+        const tilt = m.kind === 'hero' ? ` perspective(900px) rotateY(${(m.x * -.55).toFixed(2)}deg) rotateX(${(m.y * .4).toFixed(2)}deg)` : '';
+        m.el.style.transform = `translate3d(${m.x.toFixed(2)}px,${m.y.toFixed(2)}px,0) rotate(${m.r.toFixed(3)}deg)${tilt}`;
+      });
+      if (marks.some(m => m.on)) raf = requestAnimationFrame(frame);
+    };
+    const ioA = new IntersectionObserver(es => es.forEach(e => {
+      const m = marks.find(k => k.sec === e.target); m.on = e.isIntersecting;
+      if (m.on && !raf) raf = requestAnimationFrame(frame);
+    }));
+    marks.forEach(m => ioA.observe(m.sec));
+  }
+
+  /* --- capabilities: right column drifts slightly against the scroll for depth --- */
+  if (!RM) {
+    const pars = $$('.cp-par'); let pr = 0;
+    const upd = () => { pr = 0; if (innerWidth < 761) { pars.forEach(e => e.style.transform = ''); return; }
+      pars.forEach(e => { const b = e.parentElement.getBoundingClientRect(); const q = (innerHeight - b.top) / (innerHeight + b.height); if (q < -.1 || q > 1.1) return; e.style.transform = `translate3d(0,${((.5 - q) * 90).toFixed(1)}px,0)`; }); };
+    addEventListener('scroll', () => { if (!pr) pr = requestAnimationFrame(upd); }, { passive: true });
+    addEventListener('resize', () => { if (!pr) pr = requestAnimationFrame(upd); }); upd();
+  }
+
+  /* --- capabilities: spotlight the photo + card pair nearest the screen centre; hover/focus picks a pair too --- */
+  (() => {
+    const sec = $('#expertise'); if (!sec) return;
+    const items = $$('[data-k]', sec); let cur = 0, hov = 0, raf = 0, inView = false;
+    const set = k => { if (k === cur) return; cur = k; items.forEach(e => e.classList.toggle('is-on', +e.dataset.k === k)); };
+    const pick = () => {
+      raf = 0; if (hov) return set(hov);
+      const mid = innerHeight / 2; let best = 0, bd = 1e9;
+      items.forEach(e => { if (!e.classList.contains('is-in')) return; const r = e.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = +e.dataset.k; } });
+      set(best); sec.classList.toggle('is-live', inView && best > 0);
+    };
+    const req = () => { if (!raf) raf = requestAnimationFrame(pick); };
+    new IntersectionObserver(es => { inView = es[0].isIntersecting && es[0].intersectionRatio > .15; if (!inView) { sec.classList.remove('is-live'); set(0); } else req(); }, { threshold: [0, .15, .3] }).observe(sec);
+    addEventListener('scroll', () => { if (inView) req(); }, { passive: true });
+    items.forEach(e => {
+      e.addEventListener('pointerenter', () => { hov = +e.dataset.k; req(); });
+      e.addEventListener('pointerleave', () => { hov = 0; req(); });
+    });
+  })();
+
+  /* --- ambient glows: only animate while on screen --- */
+  if (!RM) { const ioG = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-on', e.isIntersecting)), { rootMargin: '200px 0px' }); $$('.glow').forEach(g => ioG.observe(g)); }
+
+  /* --- copy email with feedback --- */
+  $$('[data-copy]').forEach(b => b.onclick = async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+    catch { b.textContent = 'Press Ctrl+C'; }
+    setTimeout(() => b.textContent = 'Copy', 1800);
+  });
+})();
+</script>
+</body>
+</html>
