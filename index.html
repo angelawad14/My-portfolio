@@ -639,7 +639,9 @@ const CHAPTERS = [
         screens:[
           { s:'assets/mockups/dreem/01.webp', c:'Home', r:2.794, ms:7000 },
           { s:'assets/mockups/dreem/02.webp', c:'Recipes', r:1.716, ms:3000 }
-        ]} }]
+        ]} },
+     { name:'Partner & More', desc:'Partner & More is a consultancy that offers HR services to individuals and businesses alike. The company is looking to digitize its operations by developing a recruitment / e-learning digital platform. The digital platform will help Partner & More attract new customers, generate new revenue streams, achieve operational excellence and increase its market-share in Egypt and MENA region.', tags:['Website','Recruitment','E-learning'], mock:'assets/work/partner-more.webp', fill:true },
+     { name:'Smart', desc:'', tags:['Website'], mock:'assets/work/smart.webp', fill:true }]
     .concat(['The D.','Transportation','MOF','APF','FFM','MLG','SAWT','SKHC','Anma','Autograph']
     .map(n => ({ name:n, tags:['Website'], desc: n==='The D.' ? 'A website for a company that builds applications powered by machine learning, with case studies and a showcase of its apps.' : '', ...(LAPS[n] ? { device:LAPS[n] } : {}) })))
   },
@@ -655,11 +657,13 @@ const CHAPTERS = [
 
   { id:'print', no:'04', title:'Branding & print', unit:'piece', items:
     [
+      { name:'Gawish rebranding', desc:'', tags:['Branding','Logo'], mock:'assets/print/gawish-rebranding.webp', fill:true },
       { name:'Kelma flyer', desc:'', tags:['Print','Tri-fold flyer'], mock:'assets/print/kelma-flyer.webp', fill:true },
       { name:'Smart flyer', desc:'', tags:['Print','Flyer'], mock:'assets/print/smart-flyer.webp', fill:true },
       { name:'Linkdev invitation', desc:'', tags:['Print','Invitation'], mock:'assets/print/linkdev-invitation.webp', fill:true },
       { name:'Singularity booklet', desc:'', tags:['Print','Booklet'], mock:'assets/print/singularity-booklet.webp', fill:true },
-      { name:'Singularity booklet 2', desc:'', tags:['Print','Booklet'], mock:'assets/print/singularity-booklet-2.webp', fill:true }
+      { name:'Singularity booklet 2', desc:'', tags:['Print','Booklet'], mock:'assets/print/singularity-booklet-2.webp', fill:true },
+      { name:'Smart Stationary', desc:'', tags:['Branding','Stationery'], mock:'assets/print/smart-stationery.webp', fill:true }
     ]
   }
 ];
